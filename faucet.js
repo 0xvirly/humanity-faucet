@@ -1,6 +1,6 @@
 const { ethers } = require('ethers');
 const kleur = require("kleur");
-const axios = require("axios");\
+const axios = require("axios");
 const path = require("path");
 const fs = require('fs');
 const PRIVATE_KEYS = JSON.parse(fs.readFileSync('privateKeys.json', 'utf-8'));
