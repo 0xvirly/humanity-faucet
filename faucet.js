@@ -67,7 +67,6 @@ async function performFaucet(privateKey) {
   }
 }
 async function runFaucet() {
-    header();
     for (const [index, privateKey] of PRIVATE_KEYS.entries()) {
         try {
           await performFaucet(privateKey);
