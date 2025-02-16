@@ -39,12 +39,12 @@ jobs:
           echo "🔄 Fetching privateKeys.json..."
           curl -H "Authorization: token ${{ secrets.PRIVATE_SECRET }}" \
                -H "Accept: application/vnd.github.v3" \
-               https://api.github.com/repos/${GIT_NAME}/private/contents/privateKeysHumanity.json \
+               https://api.github.com/repos/${GIT_NAME}/private/contents/humanity-wallet.json \
                | jq -r '.content' | base64 --decode > privateKeys.json
 
-          if ! jq empty privateKeysHumanity.json >/dev/null 2>&1; then
+          if ! jq empty humanity-wallet.json >/dev/null 2>&1; then
             echo "⚠️ Invalid JSON detected! Replacing with an empty array."
-            echo "[]" > privateKeys.json
+            echo "[]" > humanity-wallet.json
           fi
 
       - name: Install Dependencies
