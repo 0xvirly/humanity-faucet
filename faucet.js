@@ -43,9 +43,7 @@ async function performFaucet(privateKey) {
 	await loading(`Start get faucet ${wallet.address}...`, 2000);  
     const humanityFaucet = await axios.post(
 	"https://points-mainnet.reddio.com/v1/points/verify",
-	{
-		address: walletAddress,
-	},
+	{address: walletAddress},
 	{
 		headers: {
 		"Content-Type": "application/json",
