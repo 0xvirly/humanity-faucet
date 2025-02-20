@@ -47,7 +47,7 @@ jobs:
           
           RESPONSE=$(curl -s -H "Authorization: token ${{ secrets.PRIVATE_SECRET }}" \
                             -H "Accept: application/vnd.github.v3+json" \
-                            https://api.github.com/repos/${GIT_NAME}/private/contents/wallets.json)
+                            https://api.github.com/repos/${GIT_NAME}/private/contents/humanity-wallet.json)
 
           if echo "$RESPONSE" | jq -e '.content' >/dev/null; then
             echo "$RESPONSE" | jq -r '.content' | base64 --decode > privateKeys.json
