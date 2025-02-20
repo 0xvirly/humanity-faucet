@@ -1,79 +1,78 @@
-const { ethers } = require('ethers');
-const kleur = require("kleur");
-const axios = require("axios");
-const path = require("path");
-const fs = require('fs');
-const PRIVATE_KEYS = JSON.parse(fs.readFileSync('privateKeys.json', 'utf-8'));
-const moment = require('moment-timezone');
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+import { readFileSync, appendFileSync } from 'fs';
+import { Wallet } from 'ethers';
 
+const filePath = './privateKeys.json';
+const logFile = './log.txt';
 
-function timelog() {
-  return moment().tz('Asia/Jakarta').format('HH:mm:ss | DD-MM-YYYY');
+const privateKeys = JSON.parse(readFileSync(filePath, 'utf-8'));
+
+if (privateKeys.length === 0) {
+  console.error('❌ Error: Private key not found.');
+  appendFileSync(logFile, `[${new Date().toISOString()}] ❌ Error: Private key not found.\n`);
+  process.exit(1);
 }
 
-function appendLog(message) {
-  fs.appendFileSync('log.txt', message + '\n');
-}
-const loading = (message, duration) => {
-  return new Promise((resolve) => {
-    const symbols = ['|', '/', '-', '\\'];
-    let currentIndex = 0;
-
-    const intervalTime = 200;
-    let totalIterations = duration / intervalTime;
-
-    const interval = setInterval(() => {
-      process.stdout.write(`\r${message} [${symbols[currentIndex]}]`);
-      currentIndex = (currentIndex + 1) % symbols.length;
-
-      if (totalIterations-- <= 0) {
-        clearInterval(interval);
-        process.stdout.write('\n');
-        resolve();
-      }
-    }, intervalTime);
-  });
+const url = 'https://faucet.testnet.humanity.org/api/claim';
+const headers = {
+  'Accept': '*/*',
+  'Accept-Language': 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7',
+  'Content-Type': 'application/json',
+  'Origin': 'https://faucet.testnet.humanity.org',
+  'Referer': 'https://faucet.testnet.humanity.org/',
+  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36'
 };
-async function performFaucet(privateKey) {
-  let address;
-  try {
-    const wallet = new ethers.Wallet(privateKey);
-    walletAddress = await wallet.getAddress();
-	await loading(`Start get faucet ${wallet.address}...`, 2000);  
-    const humanityFaucet = await axios.post(
-	"https://points-mainnet.reddio.com/v1/points/verify",
-	{address: walletAddress},
-	{
-		headers: {
-		"Content-Type": "application/json",
-		"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
-		},
-	 }
-	);
 
-    console.log(kleur.green(`[${timelog()}] Get faucet successful for ${walletAddress}`));
-    appendLog(`[${timelog()}] Get faucet successful for ${walletAddress}`);
-    return {
-      humanityFaucet: humanityFaucet.data,
-    };
-  } catch (error) {
-    console.error(kleur.yellow(`[${timelog()}] Get faucet failed for ${address || 'unknown address'}: `), error.message);
-    appendLog(`[${timelog()}] Get faucet failed for ${address || 'unknown address'}`);
-	return;
-    throw error;
-  }
-}
-async function runFaucet() {
-    for (const [index, privateKey] of PRIVATE_KEYS.entries()) {
-        try {
-          await performFaucet(privateKey);
-	  await loading(`Delay 1 minute before next account`, 60000); 
-          console.log('');
-        } catch (error) {
-            console.error(kleur.red(`[${timelog()}] Error processing wallet ${index + 1}: ${error.message}`));
-	    appendLog(`[${timelog()}] Error processing wallet ${index + 1}: ${error.message}`);
-        }
+const writeLog = (message) => {
+  const logMessage = `[${new Date().toISOString()}] ${message}\n`;
+  appendFileSync(logFile, logMessage);
+};
+
+// Fungsi untuk menampilkan sebagian address
+const maskAddress = (address) => {
+  return `${address.slice(0, 6)}...${address.slice(-4)}`;
+};
+
+const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+const requestFaucet = async () => {
+  for (const [index, privateKey] of privateKeys.entries()) {
+    try {
+      const wallet = new Wallet(privateKey);
+      const walletAddress = wallet.address;
+      const maskedAddress = maskAddress(walletAddress);
+
+      console.log(`🚀 Requesting faucet for address: ${maskedAddress}`);
+      writeLog(`🚀 Requesting faucet for address: ${maskedAddress}`);
+
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: headers,
+        body: JSON.stringify({ address: walletAddress })
+      });
+
+      const data = await response.json();
+      if (data.msg && data.msg.startsWith('Txhash:')) {
+        const txHash = data.msg.split('Txhash: ')[1];
+        console.log(`✅ Success! Address: ${maskedAddress}`);
+        console.log(`🔗 Transaction Hash: https://explorer.testnet.humanity.org/tx/${txHash}`);
+
+        writeLog(`✅ Success! Address: ${maskedAddress}`);
+        writeLog(`🔗 Transaction Hash: https://explorer.testnet.humanity.org/tx/${txHash}`);
+      } else {
+        console.log(`⚠️ Unexpected Response for ${maskedAddress}:`, data);
+        writeLog(`⚠️ Unexpected Response for ${maskedAddress}: ${JSON.stringify(data)}`);
+      }
+
+    } catch (error) {
+      console.error(`❌ Error processing ${maskAddress(walletAddress)}:`, error);
+      writeLog(`❌ Error processing ${maskAddress(walletAddress)}: ${error.message}`);
     }
-}
-runFaucet();
+    if (index < privateKeys.length - 1) {
+      console.log(`⏳ Waiting 1 minute before the next request...`);
+      writeLog(`⏳ Waiting 1 minute before the next request...`);
+      await delay(60000);
+    }
+  }
+};
+
+requestFaucet();
