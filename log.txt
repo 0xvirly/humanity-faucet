@@ -4251,3 +4251,63 @@
 [2025-03-01T12:37:35.347Z] 🚀 Requesting faucet for address: 0x0e7B...3dd8
 [2025-03-01T12:37:35.883Z] ✅ Success! Address: 0x0e7B...3dd8
 [2025-03-01T12:37:35.883Z] 🔗 Transaction Hash: https://explorer.testnet.humanity.org/tx/0xb3f8d3f2d29e6710950fc3d668a0b9bc9cc481e901172cce446ab9742dd598b0
+[2025-03-01T16:11:32.012Z] 🚀 Requesting faucet for address: 0x481d...C4E1
+[2025-03-01T16:11:33.031Z] ✅ Success! Address: 0x481d...C4E1
+[2025-03-01T16:11:33.031Z] 🔗 Transaction Hash: https://explorer.testnet.humanity.org/tx/0xa187476d7803f0b93d756ce03e7120ca1c0763574ea742faccf3ea79e4651ef0
+[2025-03-01T16:11:33.031Z] ⏳ Waiting 1 minute before the next request...
+[2025-03-01T16:12:33.085Z] 🚀 Requesting faucet for address: 0x90c9...6Fd0
+[2025-03-01T16:12:38.404Z] ⚠️ Unexpected Response for 0x90c9...6Fd0: {"msg":"Post \"http://hp-testnet-rpc.service.consul:8545\": context deadline exceeded"}
+[2025-03-01T16:12:38.404Z] ⏳ Waiting 1 minute before the next request...
+[2025-03-01T16:13:38.447Z] 🚀 Requesting faucet for address: 0xC405...276d
+[2025-03-01T16:13:43.771Z] ⚠️ Unexpected Response for 0xC405...276d: {"msg":"Post \"http://hp-testnet-rpc.service.consul:8545\": context deadline exceeded"}
+[2025-03-01T16:13:43.771Z] ⏳ Waiting 1 minute before the next request...
+[2025-03-01T16:14:43.793Z] 🚀 Requesting faucet for address: 0xa6D7...7A91
+[2025-03-01T16:14:44.118Z] ⚠️ Unexpected Response for 0xa6D7...7A91: {"msg":"Post \"http://hp-testnet-rpc.service.consul:8545\": dial tcp: lookup hp-testnet-rpc.service.consul on 172.17.0.1:53: no such host"}
+[2025-03-01T16:14:44.118Z] ⏳ Waiting 1 minute before the next request...
+[2025-03-01T16:15:44.131Z] 🚀 Requesting faucet for address: 0xbe89...1f11
+[2025-03-01T16:15:49.454Z] ⚠️ Unexpected Response for 0xbe89...1f11: {"msg":"Post \"http://hp-testnet-rpc.service.consul:8545\": context deadline exceeded"}
+[2025-03-01T16:15:49.454Z] ⏳ Waiting 1 minute before the next request...
+[2025-03-01T16:16:49.494Z] 🚀 Requesting faucet for address: 0x8228...2576
+[2025-03-01T16:16:54.984Z] ⚠️ Unexpected Response for 0x8228...2576: {"msg":"Post \"http://hp-testnet-rpc.service.consul:8545\": context deadline exceeded"}
+[2025-03-01T16:16:54.984Z] ⏳ Waiting 1 minute before the next request...
+[2025-03-01T16:17:55.034Z] 🚀 Requesting faucet for address: 0x6179...42b7
+[2025-03-01T16:17:55.358Z] ⚠️ Unexpected Response for 0x6179...42b7: {"msg":"Post \"http://hp-testnet-rpc.service.consul:8545\": dial tcp: lookup hp-testnet-rpc.service.consul on 172.17.0.1:53: no such host"}
+[2025-03-01T16:17:55.358Z] ⏳ Waiting 1 minute before the next request...
+[2025-03-01T16:18:55.416Z] 🚀 Requesting faucet for address: 0x5f87...4099
+[2025-03-01T16:18:55.732Z] ⚠️ Unexpected Response for 0x5f87...4099: {"msg":"Post \"http://hp-testnet-rpc.service.consul:8545\": dial tcp: lookup hp-testnet-rpc.service.consul on 172.17.0.1:53: no such host"}
+[2025-03-01T16:18:55.732Z] ⏳ Waiting 1 minute before the next request...
+[2025-03-01T16:19:55.790Z] 🚀 Requesting faucet for address: 0xD034...8904
+[2025-03-01T16:20:01.115Z] ⚠️ Unexpected Response for 0xD034...8904: {"msg":"Post \"http://hp-testnet-rpc.service.consul:8545\": context deadline exceeded"}
+[2025-03-01T16:20:01.115Z] ⏳ Waiting 1 minute before the next request...
+[2025-03-01T16:21:01.139Z] 🚀 Requesting faucet for address: 0x41CB...e4CF
+[2025-03-01T16:21:06.463Z] ⚠️ Unexpected Response for 0x41CB...e4CF: {"msg":"Post \"http://hp-testnet-rpc.service.consul:8545\": context deadline exceeded"}
+[2025-03-01T16:21:06.463Z] ⏳ Waiting 1 minute before the next request...
+[2025-03-01T16:22:06.520Z] 🚀 Requesting faucet for address: 0x5996...2F05
+[2025-03-01T16:22:07.005Z] ⚠️ Unexpected Response for 0x5996...2F05: {"msg":"Post \"http://hp-testnet-rpc.service.consul:8545\": dial tcp: lookup hp-testnet-rpc.service.consul on 172.17.0.1:53: no such host"}
+[2025-03-01T16:22:07.005Z] ⏳ Waiting 1 minute before the next request...
+[2025-03-01T16:23:07.040Z] 🚀 Requesting faucet for address: 0xA25e...84C6
+[2025-03-01T16:23:07.367Z] ⚠️ Unexpected Response for 0xA25e...84C6: {"msg":"Post \"http://hp-testnet-rpc.service.consul:8545\": dial tcp: lookup hp-testnet-rpc.service.consul on 172.17.0.1:53: no such host"}
+[2025-03-01T16:23:07.368Z] ⏳ Waiting 1 minute before the next request...
+[2025-03-01T16:24:07.390Z] 🚀 Requesting faucet for address: 0xE0e0...9c77
+[2025-03-01T16:24:12.703Z] ⚠️ Unexpected Response for 0xE0e0...9c77: {"msg":"Post \"http://hp-testnet-rpc.service.consul:8545\": context deadline exceeded"}
+[2025-03-01T16:24:12.703Z] ⏳ Waiting 1 minute before the next request...
+[2025-03-01T16:25:12.752Z] 🚀 Requesting faucet for address: 0xb9fe...5A3B
+[2025-03-01T16:25:18.065Z] ⚠️ Unexpected Response for 0xb9fe...5A3B: {"msg":"Post \"http://hp-testnet-rpc.service.consul:8545\": context deadline exceeded"}
+[2025-03-01T16:25:18.065Z] ⏳ Waiting 1 minute before the next request...
+[2025-03-01T16:26:18.108Z] 🚀 Requesting faucet for address: 0x2AFD...672F
+[2025-03-01T16:26:18.422Z] ⚠️ Unexpected Response for 0x2AFD...672F: {"msg":"Post \"http://hp-testnet-rpc.service.consul:8545\": dial tcp: lookup hp-testnet-rpc.service.consul on 172.17.0.1:53: no such host"}
+[2025-03-01T16:26:18.422Z] ⏳ Waiting 1 minute before the next request...
+[2025-03-01T16:27:18.479Z] 🚀 Requesting faucet for address: 0xd9ae...84eF
+[2025-03-01T16:27:19.061Z] ⚠️ Unexpected Response for 0xd9ae...84eF: {"msg":"Post \"http://hp-testnet-rpc.service.consul:8545\": dial tcp: lookup hp-testnet-rpc.service.consul on 172.17.0.1:53: no such host"}
+[2025-03-01T16:27:19.061Z] ⏳ Waiting 1 minute before the next request...
+[2025-03-01T16:28:19.100Z] 🚀 Requesting faucet for address: 0x232a...cf90
+[2025-03-01T16:28:24.423Z] ⚠️ Unexpected Response for 0x232a...cf90: {"msg":"Post \"http://hp-testnet-rpc.service.consul:8545\": context deadline exceeded"}
+[2025-03-01T16:28:24.423Z] ⏳ Waiting 1 minute before the next request...
+[2025-03-01T16:29:24.456Z] 🚀 Requesting faucet for address: 0xc17e...0f25
+[2025-03-01T16:29:29.784Z] ⚠️ Unexpected Response for 0xc17e...0f25: {"msg":"Post \"http://hp-testnet-rpc.service.consul:8545\": context deadline exceeded"}
+[2025-03-01T16:29:29.784Z] ⏳ Waiting 1 minute before the next request...
+[2025-03-01T16:30:29.842Z] 🚀 Requesting faucet for address: 0x7c86...dDc0
+[2025-03-01T16:30:35.164Z] ⚠️ Unexpected Response for 0x7c86...dDc0: {"msg":"Post \"http://hp-testnet-rpc.service.consul:8545\": context deadline exceeded"}
+[2025-03-01T16:30:35.164Z] ⏳ Waiting 1 minute before the next request...
+[2025-03-01T16:31:35.221Z] 🚀 Requesting faucet for address: 0x0e7B...3dd8
+[2025-03-01T16:31:40.543Z] ⚠️ Unexpected Response for 0x0e7B...3dd8: {"msg":"Post \"http://hp-testnet-rpc.service.consul:8545\": context deadline exceeded"}
